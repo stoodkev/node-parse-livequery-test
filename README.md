@@ -4,3 +4,7 @@ Change your AppId, MasterKey, address of your server and the class of liveQuery 
 
 ````npm install```` <br/>
 ````node main.js````
+
+Also, to create a new object without using cURL for testing the liveQuery (and in the meantime testing the insertion of photos or videos), you can run this:
+
+````node testFile.js````
