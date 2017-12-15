@@ -22,11 +22,16 @@ const filePath = path.resolve(__dirname, '', 'video.mp4');
       file = new Parse.File('icon', {base64: data});
       file.save().then(function() {
         // The file has been saved to Parse.
+        var chatroom={
+          "__type": "Pointer",
+          "className": "Chatroom",
+          "objectId": "rHN9rNYbhYa"
+        };
         var InstantMessage = new Parse.Object("InstantMessage");
-        InstantMessage.set("chatroom", 'chatroom');
+        InstantMessage.set("chatroom", chatroom);
         InstantMessage.set("from", "me");
         InstantMessage.set("content", "Hey!");
-        InstantMessage.set("tag", "tico");
+        InstantMessage.set("length", 6);
         InstantMessage.set("video", file);
         InstantMessage.save();
       }, function(error) {

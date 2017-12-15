@@ -11,13 +11,21 @@ let client = new LiveQueryClient({
   masterKey: masterKey,
 });
 
+var chatroom={
+          "__type": "Pointer",
+          "className": "Chatroom",
+          "objectId": "rHN9rNYbhYa"
+        };
+
 client.open({useMasterKey:true});
 client.on('open', () => {
   console.log('connection opened');
 });
 
-let query = new Parse.Query(Parse.Object.extend(liveQueryCollection));
-
+query.equalTo('chatroom',chatroom);
+query.greaterThan("length", 5);
+let query = new Parse.Query(Parse.Object.extend('InstantMessage'));
+query.equalTo('chatroom',pointerToTheChatroom);
 let subscription = client.subscribe(query);
 
 // Add sessiontoken for liveQuery to work with ACL
