@@ -27,7 +27,7 @@ const filePath = path.resolve(__dirname, '', 'video.mp4');
           "className": "Chatroom",
           "objectId": "rHN9rNYbhYa"
         };
-        var InstantMessage = new Parse.Object("InstantMessage");
+        var InstantMessage = new Parse.Object("Message");
         InstantMessage.set("chatroom", chatroom);
         InstantMessage.set("from", "me");
         InstantMessage.set("content", "Hey!");
